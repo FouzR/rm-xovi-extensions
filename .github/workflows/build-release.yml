@@ -1,10 +1,6 @@
 name: Build with RMPP Toolchain and Upload Releases
 
-on:
-  push:
-    tags:
-      - '*'
-
+on: workflow_dispatch
 jobs:
   build:
     strategy:
@@ -73,8 +69,9 @@ jobs:
           with:
             draft: false
             prerelease: false
-            release_name: ${{ github.event.release.tag_name }}
-            tag_name: ${{ github.ref }}
+            release_name: test
+            tag_name: test
+            
 
         - name: Upload Release Assets
           uses: actions/upload-release-asset@v1
